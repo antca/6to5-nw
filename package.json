@@ -2,7 +2,9 @@
   "name": "6to5-nw",
   "version": "0.0.1",
   "description": "A module to develop node-webkit applications with ES6 easily.",
-  "author": "Anthony Camboni",
+  "author": {
+    "name": "Anthony Camboni"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,9 +17,22 @@
   "dependencies": {
     "browserify": "~7.0.1",
     "6to5ify": "~1.4.0",
-    "watchify": "~2.2.1"
+    "watchify": "~2.2.1",
+    "exorcist": "~0.1.6"
   },
   "peerDependencies": {
     "6to5": "~1.15.0"
-  }
+  },
+  "readme": "# 6to5-nw\n",
+  "readmeFilename": "README",
+  "bugs": {
+    "url": "https://github.com/antca/6to5-nw/issues"
+  },
+  "_id": "6to5-nw@0.0.1",
+  "dist": {
+    "shasum": "0234d55d57ae0c14d3643971c6fe168b4ad4d1a4"
+  },
+  "_resolved": "git://github.com/antca/6to5-nw#e99b95ffb435d1e7b05ee927476cc0098b516db4",
+  "_from": "git://github.com/antca/6to5-nw",
+  "_fromGithub": true
 }

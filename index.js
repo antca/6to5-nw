@@ -3,13 +3,18 @@ var to5 = require('6to5');
 var to5ify = require('6to5ify');
 var browserify = require('browserify');
 var watchify = require('watchify');
+var exorcist = require('exorcist');
 
 function run(entryFile, options) {
+	options = options || {};
 	var brOptions = options.browserify || {};
 	var to5Options = options.to5 || {};
 
-	brOptions.cache = {};
-	brOptions.packageCache = {};
+	global.watchifyCache = global.watchifyCache || {};
+	global.watchifyPackageCache = global.watchifyPackageCache || {};
+
+	brOptions.cache = global.watchifyCache;
+	brOptions.packageCache = global.watchifyPackageCache;
 	brOptions.fullPaths = true;	
 
 	var b = browserify(brOptions);
@@ -23,7 +28,7 @@ function run(entryFile, options) {
 			addScript('bundle.js');
 		});
 		stream.write((options.polyfill ? 'require("6to5/polyfill");' : '') + 'require("6to5/register")(' + JSON.stringify(to5Options) + ');global.requireNode = window.requireNode = require;');
-		bundle.pipe(stream);
+		bundle.pipe(exorcist('bundle.js.map')).pipe(stream);
 	})
 	.on('update', function() {
 		global.window.location.reload();
