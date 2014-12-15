@@ -1,13 +1,17 @@
 {
   "name": "6to5-nw",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "A module to develop node-webkit applications with ES6 easily.",
+  "author": "Anthony Camboni",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/antca/6to5-nw.git"
+  },
+  "license": "MIT",
   "dependencies": {
     "browserify": "~7.0.1",
     "6to5ify": "~1.4.0",
