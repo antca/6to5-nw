@@ -1,0 +1,19 @@
+{
+  "name": "6to5-nw",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "browserify": "~7.0.1",
+    "6to5ify": "~1.4.0",
+    "watchify": "~2.2.1"
+  },
+  "peerDependencies": {
+    "6to5": "~1.15.0"
+  }
+}
