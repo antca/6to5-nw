@@ -25,12 +25,9 @@ function run(entryFile, options) {
     .on('bundle', function(bundle) {
         var stream = fs.createWriteStream('bundle.js');
         stream.on('finish', function() {
-            if(options.polyfill) {
-                addScript(require.resolve('6to5/browser-polyfill'));
-            }
             addScript('bundle.js');
         });
-        stream.write((options.polyfill ? 'require("6to5/polyfill");' : '') + 'require("6to5/register")(' + JSON.stringify(to5Options) + ');global.requireNode = window.requireNode = require;');
+        stream.write('require("6to5/register")(' + JSON.stringify(to5Options) + ');global.requireNode = window.requireNode = require;');
         bundle.pipe(exorcist('bundle.js.map')).pipe(stream);
     })
     .on('update', function() {
